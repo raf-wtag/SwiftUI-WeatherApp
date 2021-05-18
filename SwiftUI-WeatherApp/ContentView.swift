@@ -10,30 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, Color("custom_lightBlue")]),
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(.all)
+            BackgroundView(topColor: .blue, bottomColor: Color("custom_lightBlue"))
             
             VStack {
-                Text("Dhaka, Bangladesh")
-                    .font(.system(size: 32, weight: .medium))
-                    .foregroundColor(.white)
-                    .padding()
-                    .padding(.bottom, 40)
+                CitynameTextView(cityName: "Dhaka, Bangladesh")
                 
-                VStack(spacing: 10) {
-                    Image(systemName: "cloud.sun.bolt.fill")
-                        .renderingMode(.original)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 180, height: 180)
-                    
-                    Text("36°")
-                        .font(.system(size: 90, weight: .medium))
-                        .foregroundColor(.white)
-                }
-                .padding(.bottom, 40)
+                PresentdayWeather(weatherStatusImage: "cloud.sun.bolt.fill", temperature: 36)
                 
                 HStack(spacing: 20) {
                     WeatherDayView(dayName: "SUN", weatherStatusImage: "cloud.heavyrain.fill", temperatureOfTheDay: 33)
@@ -48,12 +30,7 @@ struct ContentView: View {
                 Button {
                     print("Tapped")
                 } label: {
-                    Text("Change Time")
-                        .frame(width: 200, height: 50)
-                        .background(Color.white)
-                        .font(.system(size: 20, weight: .bold))
-                        .cornerRadius(3.0)
-                        
+                    StatusChangeButton(buttonTitle: "Change Shift", textColor: .blue, backgroundColor: .white)
                 }
                 
                 Spacer()
@@ -90,5 +67,69 @@ struct WeatherDayView: View {
                 .font(.system(size: 28, weight: .bold))
                 .foregroundColor(.white)
         }
+    }
+}
+
+struct BackgroundView: View {
+    
+    var topColor: Color
+    var bottomColor: Color
+    
+    var body: some View {
+        LinearGradient(gradient: Gradient(colors: [topColor, bottomColor]),
+                       startPoint: .topLeading,
+                       endPoint: .bottomTrailing)
+            .edgesIgnoringSafeArea(.all)
+    }
+}
+
+
+struct CitynameTextView: View {
+    
+    var cityName: String
+    
+    var body: some View {
+        Text(cityName)
+            .font(.system(size: 32, weight: .medium))
+            .foregroundColor(.white)
+            .padding()
+            .padding(.bottom, 40)
+    }
+}
+
+struct PresentdayWeather: View {
+    
+    var weatherStatusImage: String
+    var temperature: Int
+    
+    var body: some View {
+        VStack(spacing: 10) {
+            Image(systemName: weatherStatusImage)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 180, height: 180)
+            
+            Text("\(temperature)°")
+                .font(.system(size: 90, weight: .medium))
+                .foregroundColor(.white)
+        }
+        .padding(.bottom, 40)
+    }
+}
+
+struct StatusChangeButton: View {
+    
+    var buttonTitle: String
+    var textColor: Color
+    var backgroundColor: Color
+    
+    var body: some View {
+        Text(buttonTitle)
+            .frame(width: 200, height: 50)
+            .background(backgroundColor)
+            .foregroundColor(textColor)
+            .font(.system(size: 20, weight: .bold))
+            .cornerRadius(3.0)
     }
 }
