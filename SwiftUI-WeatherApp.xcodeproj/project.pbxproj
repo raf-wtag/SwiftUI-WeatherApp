@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,8 @@
 		FFED2C812656570000903874 /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED2C802656570000903874 /* WeatherDetail.swift */; };
 		FFED2C842656570D00903874 /* DailyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED2C832656570D00903874 /* DailyWeather.swift */; };
 		FFED2C872656572200903874 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED2C862656572200903874 /* Temperature.swift */; };
+		FFED2C8A2656648F00903874 /* CityViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED2C892656648F00903874 /* CityViewViewModel.swift */; };
+		FFED2C8E2656756900903874 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FFED2C8D2656756900903874 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,7 @@
 		FFED2C802656570000903874 /* WeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
 		FFED2C832656570D00903874 /* DailyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeather.swift; sourceTree = "<group>"; };
 		FFED2C862656572200903874 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		FFED2C892656648F00903874 /* CityViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFED2C8E2656756900903874 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +126,7 @@
 		FFED2C6A26564D8200903874 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FFED2C892656648F00903874 /* CityViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -149,6 +154,9 @@
 			dependencies = (
 			);
 			name = "SwiftUI-WeatherApp";
+			packageProductDependencies = (
+				FFED2C8D2656756900903874 /* Lottie */,
+			);
 			productName = "SwiftUI-WeatherApp";
 			productReference = FF285D8C2653B45800EFB2B2 /* SwiftUI-WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -176,6 +184,9 @@
 				Base,
 			);
 			mainGroup = FF285D832653B45800EFB2B2;
+			packageReferences = (
+				FFED2C8C2656756900903874 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = FF285D8D2653B45800EFB2B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -203,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFED2C7526564EDC00903874 /* APIExtensions.swift in Sources */,
+				FFED2C8A2656648F00903874 /* CityViewViewModel.swift in Sources */,
 				FFED2C812656570000903874 /* WeatherDetail.swift in Sources */,
 				FFED2C7B2656567100903874 /* WeatherResponse.swift in Sources */,
 				FF285D922653B45800EFB2B2 /* ContentView.swift in Sources */,
@@ -400,6 +412,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FFED2C8C2656756900903874 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFED2C8D2656756900903874 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFED2C8C2656756900903874 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FF285D842653B45800EFB2B2 /* Project object */;
 }
